@@ -3,12 +3,12 @@ import socket from './ws-client';
 class ChatMessage {
   constructor({
     message: m,
-    user: u='batman',
-    timestamp: t=(new Date()).getTime()
+    user: u = 'batman',
+    timestamp: t = (new Date()).getTime()
   }) {
     this.username = u;
     this.message = m;
-    this.timestamp  = t;
+    this.timestamp = t;
   }
   serialize() {
     return {
@@ -25,7 +25,9 @@ class ChatApp {
     // console.log('Hello ES6!');
     socket.init('ws://localhost:3001');
     socket.registerOpenHandler(() => {
-      let message = new ChatMessage({message: 'pow!'});
+      let message = new ChatMessage({
+        message: 'pow!'
+      });
       socket.sendMessage(message.serialize());
     });
     socket.registerMessageHandler((data) => {
