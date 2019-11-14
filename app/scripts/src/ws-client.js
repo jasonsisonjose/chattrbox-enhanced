@@ -1,13 +1,14 @@
+/* jshint esversion: 6 */
+
 let socket;
 
 function init(url) {
   socket = new WebSocket(url);
-  console.log("connecting...");
+  console.log('connecting...');
 }
 
 function registerOpenHandler(handlerFunction) {
-  // => is a new to clone
-  socket.onopen = () => {
+  socket.onopen = function() {
     console.log('open');
     handlerFunction();
   };

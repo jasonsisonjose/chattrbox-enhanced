@@ -26,7 +26,7 @@ var server = http.createServer(function(req, res) {
     }
   });
 
-  var getMime = mime.getType(filePath)
+  var getMime = mime.getType(filePath);
   console.log('Type of document is: ' + getMime);
 });
 server.listen(3000);
